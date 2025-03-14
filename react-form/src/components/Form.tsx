@@ -8,13 +8,16 @@ const Form = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    const response = await fetch("http://localhost:5000/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://react-formulier-nodemailer.onrender.com/send",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (response.ok) {
       setSubmitted(true);
